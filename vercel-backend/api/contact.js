@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
   // Handle CORS preflight requests
-  res.setHeader("Access-Control-Allow-Origin", "https://preeminent-cucurucho-92fbe3.netlify.app");
+  res.setHeader("Access-Control-Allow-Origin", "https://localhost:3000");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader(
     "Access-Control-Allow-Headers",
