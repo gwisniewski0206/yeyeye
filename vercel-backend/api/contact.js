@@ -19,7 +19,7 @@ export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
 
   try {
-    const { name, email, message } = JSON.parse(req.body);
+    const { name, email, message } = req.body;
     console.log("json parsed");
 
     // Configure transporter
