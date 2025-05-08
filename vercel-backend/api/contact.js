@@ -20,6 +20,7 @@ export default async function handler(req, res) {
 
   try {
     const { name, email, message } = JSON.parse(req.body);
+    return res.status(200).end();
 
     // Configure transporter
     const transporter = nodemailer.createTransport({
