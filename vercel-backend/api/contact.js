@@ -20,7 +20,6 @@ export default async function handler(req, res) {
 
   try {
     const { name, email, message } = JSON.parse(req.body);
-    return res.status(200)
 
     // Configure transporter
     const transporter = nodemailer.createTransport({
@@ -46,6 +45,6 @@ Message: ${message}`,
     return res.status(200).json({ message: 'Email sent successfully' });
   } catch (err) {
     console.error(err);
-    return res.status(500).json({ error: 'Internal server error' });
+    return res.status(200).json({ error: 'Internal server error' });
   }
 }
