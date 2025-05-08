@@ -20,6 +20,7 @@ export default async function handler(req, res) {
 
   try {
     const { name, email, message } = JSON.parse(req.body);
+    console.log("json parsed");
 
     // Configure transporter
     const transporter = nodemailer.createTransport({
@@ -32,6 +33,8 @@ export default async function handler(req, res) {
       },
     });
 
+    console.log("transporter configured");
+
     // Send mail
     await transporter.sendMail({
       from: `"Contact Form" <${process.env.EMAIL_USER}>`,
@@ -42,6 +45,8 @@ Email: ${email}
 Message: ${message}`,
     });
 
+    console.log("mail sent");
+    
     return res.status(200).json({ message: 'Email sent successfully' });
   } catch (err) {
     console.error(err);
