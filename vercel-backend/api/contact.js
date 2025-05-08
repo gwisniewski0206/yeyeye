@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
   // Handle CORS preflight requests
-  res.setHeader("Access-Control-Allow-Origin", ALLOWED_ORIGIN);
+  res.setHeader("Access-Control-Allow-Origin", 'http://localhost:3000');
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader(
     "Access-Control-Allow-Headers",
@@ -20,6 +20,7 @@ export default async function handler(req, res) {
 
   try {
     const { name, email, message } = JSON.parse(req.body);
+     return res.status(200);
 
     // Configure transporter
     const transporter = nodemailer.createTransport({
