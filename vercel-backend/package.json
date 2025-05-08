@@ -1,0 +1,15 @@
+{
+  "name": "contact-backend",
+  "version": "1.0.0",
+  "description": "Minimal backend for forwarding contact form data via email",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.2",
+    "nodemailer": "^6.7.2"
+  }
+}
