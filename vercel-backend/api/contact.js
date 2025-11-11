@@ -1,8 +1,28 @@
 import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
-  // Handle CORS preflight requests
-  res.setHeader("Access-Control-Allow-Origin", "https://localhost:3000");
+  const allowedOrigins = [
+    "https://t2consult.de",
+    "https://t2consult.net",
+    "https://t2consult.com",
+    "https://localhost:3000", // Keep localhost for development
+    "https://preeminent-cucurucho-92fbe3.netlify.app" // Keep netlify app
+  ];
+
+  const origin = req.headers.origin;
+  let isAllowed = false;
+
+  if (allowedOrigins.includes(origin)) {
+    isAllowed = true;
+  }
+
+  if (isAllowed) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  } else {
+    // Optionally, set a default or restrict access if not allowed
+    // For now, we'll just not set the header if not allowed, which will block it.
+  }
+
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader(
     "Access-Control-Allow-Headers",
@@ -16,7 +36,6 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
   // Set CORS header for actual request
-  res.setHeader('Access-Control-Allow-Origin', "https://preeminent-cucurucho-92fbe3.netlify.app");
 
   try {
     const { name, email, message } = req.body;
