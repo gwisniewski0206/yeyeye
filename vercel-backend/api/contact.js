@@ -60,8 +60,10 @@ export default async function handler(req, res) {
       to: process.env.EMAIL_TO,
       subject: `Neue Nachricht von: ${name}`,
       text: `Name: ${name}
-      Email: ${email}
-      Message: ${message}`,
+      
+Email: ${email}
+
+Message: ${message}`,
     });
 
     console.log("mail sent");
