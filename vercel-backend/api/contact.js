@@ -56,12 +56,12 @@ export default async function handler(req, res) {
 
     // Send mail
     await transporter.sendMail({
-      from: `"Contact Form" <${process.env.EMAIL_USER}>`,
+      from: `"t2consult Kontaktformular" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_TO,
-      subject: `YOOOOOO ${name}`,
+      subject: `Neue Nachricht von: ${name}`,
       text: `Name: ${name}
-Email: ${email}
-Message: ${message}`,
+      Email: ${email}
+      Message: ${message}`,
     });
 
     console.log("mail sent");
